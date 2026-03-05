@@ -1,4 +1,178 @@
-  @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap');
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/fonts/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400;
+}
 
-  .attribution { font-size: 11px; text-align: center; }
-  .attribution a { color: hsl(228, 45%, 44%); }
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/fonts/Poppins-Bold.ttf') format('truetype');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/fonts/Poppins-ExtraBoldItalic.ttf') format('truetype');
+  font-style: italic;
+  font-weight: 800;
+}
+
+:root {
+  --purple: hsl(259, 100%, 65%);
+  --light-red: hsl(0, 100%, 67%);
+  --white: hsl(0, 0%, 100%);
+  --off-white: hsl(0, 0%, 94%);
+  --light-grey: hsl(0, 0%, 86%);
+  --smokey-grey: hsl(0, 1%, 44%);
+  --off-black: hsl(0, 0%, 8%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  gap: 1.25rem;
+  background: var(--off-white);
+  font-family: 'Poppins', sans-serif;
+  color: var(--off-black);
+}
+
+.card {
+  width: min(52rem, 100%);
+  background: var(--white);
+  border-radius: 1.5rem 1.5rem 7rem;
+  padding: clamp(1.5rem, 3.5vw, 3rem);
+  box-shadow: 0 0.75rem 1.5rem rgb(0 0 0 / 8%);
+}
+
+.form-container {
+  display: flex;
+  gap: clamp(0.75rem, 2vw, 2rem);
+}
+
+.field {
+  width: min(10rem, 31%);
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--smokey-grey);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+input {
+  width: 100%;
+  border: 1px solid var(--light-grey);
+  border-radius: 0.5rem;
+  padding: 0.75rem 0.95rem;
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  font-weight: 700;
+  font-family: inherit;
+}
+
+input:focus-visible {
+  outline: 1px solid var(--purple);
+  border-color: var(--purple);
+}
+
+small {
+  display: block;
+  min-height: 1.2rem;
+  margin-top: 0.35rem;
+  font-size: 0.75rem;
+  color: var(--light-red);
+  font-style: italic;
+}
+
+.field.error label {
+  color: var(--light-red);
+}
+
+.field.error input {
+  border-color: var(--light-red);
+}
+
+.divider {
+  position: relative;
+  margin-block: 1rem 0.5rem;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--light-grey);
+  margin: 0;
+}
+
+.submit-btn {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4.75rem;
+  aspect-ratio: 1;
+  border: 0;
+  border-radius: 50%;
+  background: var(--purple);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background-color 0.2s ease;
+}
+
+.submit-btn:hover,
+.submit-btn:focus-visible {
+  background: var(--off-black);
+}
+
+.output h1 {
+  margin: 0;
+  font-size: clamp(2.75rem, 8vw, 5rem);
+  line-height: 1.05;
+  font-style: italic;
+  font-weight: 800;
+}
+
+.output span {
+  color: var(--purple);
+}
+
+.attribution {
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media (max-width: 40rem) {
+  .card {
+    border-radius: 1.5rem 1.5rem 5rem;
+    padding: 1.5rem;
+  }
+
+  .field {
+    width: 100%;
+  }
+
+  .divider {
+    margin-block: 0.75rem 2rem;
+  }
+
+  .submit-btn {
+    left: 50%;
+    right: auto;
+    width: 4rem;
+    transform: translate(-50%, -50%);
+  }
+}
